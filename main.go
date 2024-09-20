@@ -8,4 +8,6 @@ import (
 func main() {
 	handler,_ := argtools.ReadArgs()
 	handler.ProcessArgs()
+
+	// fmt.Println("Dirs: ", handler.Dirs)
 }

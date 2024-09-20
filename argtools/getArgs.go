@@ -50,13 +50,9 @@ func (h *Handler) ProcessArgs() {
 			case "-v":
 				h.version()
 			case "-d":
-				if data == "" {
-					handlers.HandleError(fmt.Errorf("no directory provided after -d"), 1)
-				} else {
-					err := h.Dirs.Add(data)
-					if err != nil {
-						handlers.HandleError(err, 1)
-					}
+				err := h.Dirs.Add(data)
+				if err != nil {
+					handlers.HandleError(err, 1)
 				}
 			default:
 				handlers.HandleError(fmt.Errorf("unknown argument provided: %s", flag), 1)

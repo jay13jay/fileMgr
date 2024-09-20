@@ -2,7 +2,8 @@ package dirtools
 
 import (
 	"errors"
-	"fmt"
+
+	"github.com/jay13jay/fileMgr/handlers"
 )
 
 
@@ -14,7 +15,8 @@ type File struct {
 
 type Dir struct {
 	Name string
-	Files []File
+	// Files []File
+	Files []string
 	Size int64
 }
 
@@ -36,9 +38,13 @@ func (d *DirList) Add(dir string) error {
 	}
 	newDir := Dir{Name: dir}
 	*d = append(*d, newDir)
+
+	// populate file list
+	newDir.GetFiles()
+
 	return nil
 }
 
 func (d *Dir) GetFiles() {
-	fmt.Println("Populate Dir.Files - not Implemented")
+	handlers.GetFiles(d.Name)
 }
