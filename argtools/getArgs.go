@@ -4,13 +4,12 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/jay13jay/fileMgr/dirtools"
 	"github.com/jay13jay/fileMgr/handlers"
 )
 
 type Handler struct {
 	Args []string
-	Dirs dirtools.DirList
+	Dirs handlers.NodeList
 }
 
 func ReadArgs() (handler Handler, err error) {
